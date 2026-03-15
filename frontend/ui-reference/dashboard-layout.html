@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Management Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>UniAdmin</h2>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="#">Universities</a></li>
+          <li><a href="#">Colleges</a></li>
+          <li><a href="#">Departments</a></li>
+          <li><a href="#">Students</a></li>
+          <li><a href="#">Faculty</a></li>
+          <li><a href="#">Academics</a></li>
+          <li><a href="#">Attendance</a></li>
+          <li><a href="#">Exams</a></li>
+          <li><a href="#">Finance</a></li>
+          <li><a href="#">Notices</a></li>
+          <li><a href="#">Documents</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Navbar -->
+      <header class="navbar">
+        <div class="navbar-left">
+          <h1>University Management Platform</h1>
+        </div>
+        <div class="navbar-center">
+          <div class="search-container">
+            <input type="text" placeholder="Search...">
+          </div>
+        </div>
+        <div class="navbar-right">
+          <div class="notification-icon">🔔</div>
+          <div class="profile-placeholder">👤</div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="dashboard-main">
+        <div class="dashboard-content">
+          <h2>Dashboard</h2>
+          
+          <!-- Metrics Cards -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <h3>Total Students</h3>
+              <p class="metric-value">12,458</p>
+              <p class="metric-change">+12% from last month</p>
+            </div>
+            <div class="metric-card">
+              <h3>Total Faculty</h3>
+              <p class="metric-value">892</p>
+              <p class="metric-change">+5% from last month</p>
+            </div>
+            <div class="metric-card">
+              <h3>Total Colleges</h3>
+              <p class="metric-value">24</p>
+              <p class="metric-change">No change</p>
+            </div>
+            <div class="metric-card">
+              <h3>Active Courses</h3>
+              <p class="metric-value">342</p>
+              <p class="metric-change">+8% from last month</p>
+            </div>
+          </div>
+
+          <!-- Recent Activity Table -->
+          <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Activity</th>
+                  <th>User</th>
+                  <th>Time</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>New student registration</td>
+                  <td>John Smith</td>
+                  <td>2 minutes ago</td>
+                  <td><span class="status success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Course schedule updated</td>
+                  <td>Dr. Emily Johnson</td>
+                  <td>15 minutes ago</td>
+                  <td><span class="status success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Exam results published</td>
+                  <td>Prof. Michael Brown</td>
+                  <td>1 hour ago</td>
+                  <td><span class="status warning">Processing</span></td>
+                </tr>
+                <tr>
+                  <td>Attendance record submitted</td>
+                  <td>Sarah Davis</td>
+                  <td>2 hours ago</td>
+                  <td><span class="status success">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>Financial report generated</td>
+                  <td>Robert Wilson</td>
+                  <td>3 hours ago</td>
+                  <td><span class="status success">Completed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
