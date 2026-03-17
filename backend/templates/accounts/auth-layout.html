@@ -1,22 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auth Layout</title>
-  <link rel="stylesheet" href="auth-styles.css">
+  <title>{% block title %}Auth{% endblock %} | University Management Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/auth-styles.css' %}">
 </head>
 <body>
+  <div class="bg-glow">
+    <div class="glow-1"></div>
+  </div>
+  
   <div class="layout-container">
     <header class="brand-section">
-      <h1>University Management Platform</h1>
-      <p>Institutional portal for academic and administrative operations</p>
+      <h1>University Platform</h1>
+      <p>Secure Institutional Portal</p>
     </header>
+    
     <main class="login-form-section">
-      <!-- Content will be inserted here -->
+      {% block content %}
+      {% endblock %}
     </main>
+    
     <footer class="footer-section">
-      <p>Secure institutional access</p>
+      <p>&copy; 2026 University Management System. Secure institutional access.</p>
     </footer>
   </div>
 </body>

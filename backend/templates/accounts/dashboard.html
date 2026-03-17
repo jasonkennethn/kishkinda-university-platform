@@ -1,0 +1,30 @@
+{% extends 'accounts/auth-layout.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="auth-card dashboard-container">
+    <h2>Academic Dashboard</h2>
+    <p>Logged in as: <strong>{{ user.email }}</strong></p>
+    
+    <div style="margin: 24px 0; padding: 20px; background: hsla(224, 71%, 15%, 0.5); border-radius: 16px; border: 1px solid var(--border);">
+        <p style="margin-bottom: 8px; color: var(--text-main); font-weight: 600;">Account Details</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.875rem;">
+            <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-muted);">Role:</span>
+                <span style="color: var(--primary); font-weight: 600;">{{ user.get_role_display }}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--text-muted);">Joined:</span>
+                <span>{{ user.created_at|date:"M d, Y" }}</span>
+            </div>
+        </div>
+    </div>
+    
+    <a href="{% url 'accounts:logout' %}" style="display: block; width: 100%; text-decoration: none;">
+        <button type="button" style="background: hsla(0, 84%, 60%, 0.1); border: 1px solid var(--error); color: var(--error); cursor: pointer;">
+            Sign Out
+        </button>
+    </a>
+</div>
+{% endblock %}

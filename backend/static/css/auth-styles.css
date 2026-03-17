@@ -1,119 +1,242 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --primary: hsl(221, 83%, 53%);
+  --primary-hover: hsl(221, 83%, 63%);
+  --bg: hsl(224, 71%, 4%);
+  --card-bg: hsla(224, 71%, 8%, 0.85);
+  --text-main: hsl(210, 40%, 98%);
+  --text-muted: hsl(215, 20%, 65%);
+  --border: hsla(217, 19%, 27%, 0.5);
+  --error: hsl(0, 84%, 60%);
+  --success: hsl(142, 70%, 45%);
+  --glass-border: hsla(210, 40%, 98%, 0.1);
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #F5F7FB;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,0.2) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,0.15) 0, transparent 50%);
+  color: var(--text-main);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .layout-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
-  max-width: 800px;
-  padding: 20px;
+  max-width: 440px;
+  padding: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Background Glows */
+.bg-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, hsla(221, 83%, 53%, 0.15), transparent 70%);
+  filter: blur(60px);
 }
 
 .brand-section {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  animation: fadeInDown 0.8s ease-out;
 }
 
-.login-form-section {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.brand-section h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-section p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .auth-card {
-  background-color: #FFFFFF;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 32px;
-  width: 100%;
-  max-width: 400px;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .auth-card h2 {
-  margin-bottom: 16px;
-  color: #1F2937;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
-.auth-card p {
+.auth-card > p {
+  color: var(--text-muted);
   margin-bottom: 32px;
-  color: #6B7280;
+  font-size: 0.9rem;
 }
 
-.auth-card label {
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #1F2937;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-muted);
 }
 
 .auth-card input[type="email"],
-.auth-card input[type="password"] {
+.auth-card input[type="password"],
+.auth-card .form-control {
   width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #E5E7EB;
-  border-radius: 4px;
-  margin-bottom: 16px;
+  background: hsla(224, 71%, 12%, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.2s ease;
 }
 
-.auth-card input[type="email"]:focus,
-.auth-card input[type="password"]:focus {
+.auth-card input:focus {
   outline: none;
-  border-color: #93C5FD;
-  box-shadow: 0 0 0 2px #93C5FD;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px hsla(221, 83%, 53%, 0.2);
+  background: hsla(224, 71%, 15%, 0.8);
 }
 
 .checkbox-container {
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
 }
 
-.checkbox-container input[type="checkbox"] {
-  margin-right: 8px;
+.checkbox-container input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--primary);
 }
 
 .auth-card button {
-  background-color: #1E3A8A;
-  color: white;
-  padding: 12px 14px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
   width: 100%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .auth-card button:hover {
-  background-color: #2563EB;
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.auth-card button:active {
+  transform: translateY(0);
 }
 
 .forgot-password-link {
   display: block;
-  margin-top: 8px;
-  color: #1E3A8A;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
-.error-message {
-  margin-top: 16px;
-  padding: 12px;
-  background-color: #FEE2E2;
-  border-radius: 4px;
-  color: #DC2626;
-  display: none;
+.forgot-password-link:hover {
+  color: var(--primary);
+}
+
+.messages, .error-message, .field-errors {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+.error-message, .field-errors, .error {
+  background: hsla(0, 84%, 60%, 0.1);
+  border: 1px solid var(--error);
+  color: var(--error);
+}
+
+.success {
+  background: hsla(142, 70%, 45%, 0.1);
+  border: 1px solid var(--success);
+  color: var(--success);
 }
 
 .footer-section {
   text-align: center;
   margin-top: 32px;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Dashboard Specific Overrides (Optional) */
+.dashboard-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px;
 }
