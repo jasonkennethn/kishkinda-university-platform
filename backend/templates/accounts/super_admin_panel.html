@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin Panel - University Management System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body class="bg-gradient">
+    <div class="card-container" style="margin: 0 auto;">
+        <div class="dashboard-card text-center" style="max-width: 500px;">
+            <h2 class="card-title" style="color: var(--error);">Super Admin Panel</h2>
+            <p class="mb-20" style="color: var(--text-muted);">Absolute power zone. Proceed with caution.</p>
+            <a href="{% url 'accounts:dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>

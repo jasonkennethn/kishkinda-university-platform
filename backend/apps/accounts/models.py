@@ -38,6 +38,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
 
     email = models.EmailField(unique=True)
+    full_name = models.CharField(max_length=255, blank=True)
     role = models.CharField(max_length=30, choices=ROLE_CHOICES, default='student')
     
     is_active = models.BooleanField(default=True)
@@ -49,7 +50,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['full_name']
 
     class Meta:
         verbose_name = 'user'
@@ -57,3 +58,30 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+    @property
+    def is_super_admin_user(self): return self.role == 'super_admin'
+    
+    @property
+    def is_university_admin_user(self): return self.role == 'university_admin'
+    
+    @property
+    def is_college_admin_user(self): return self.role == 'college_admin'
+    
+    @property
+    def is_registrar_user(self): return self.role == 'registrar'
+    
+    @property
+    def is_exam_controller_user(self): return self.role == 'exam_controller'
+    
+    @property
+    def is_finance_admin_user(self): return self.role == 'finance_admin'
+    
+    @property
+    def is_hod_user(self): return self.role == 'hod'
+    
+    @property
+    def is_faculty_user(self): return self.role == 'faculty'
+    
+    @property
+    def is_student_user(self): return self.role == 'student'

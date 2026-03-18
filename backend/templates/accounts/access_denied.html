@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denied - University Management System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body class="bg-gradient">
+    <div class="card-container">
+        <div class="auth-card text-center">
+            <h2 class="error-text">Access Denied</h2>
+            <p class="mb-20">You do not have permission to view this page.</p>
+            <a href="{% url 'accounts:dashboard' %}" class="btn btn-primary">Go to Dashboard</a>
+        </div>
+    </div>
+</body>
+</html>
